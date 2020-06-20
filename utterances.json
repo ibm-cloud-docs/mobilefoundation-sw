@@ -1,0 +1,40 @@
+{
+    "mf-software-deploy-fails-cr":[
+      "Mobile Foundation deployment fails",
+      "MF deployment on IBM Cloud fails",
+      "Deployment fails to apply cr yaml",
+      "Mobile Foundation deployment fails to apply cr yaml",
+      "Install fails to apply cr yaml",
+      "MF install fails to apply cr yaml"
+      ],
+    "mf-software-deploy-fails-db-error":[
+       "Mobile Foundation deployment fails with database error",
+       "MF deployment fails with database error",
+       "Database oracle not supported for MF install",
+       "Database other than Db2 not supported for MF install"
+     ],
+   "mf-software-deploy-fails-pods-not-created":[
+      "Mobile Foundation deployment fails no pods created",
+      "MF install no pods created error",
+      "MF deployment fails and no pods created",
+      "Pods not created when installing Mobile Foundation"
+    ],
+    "mf-software-deploy-routes-not-accessible":[
+        "Mobile Foundation deployment routes not accessible",
+        "MF install routes not created",
+        "MF deployment routes not accessible",
+        "No routes created MF installation issue"
+    ],
+    "mf-software-install-not-connecting-to-db":[
+        "Mobile Foundation not connecting to database",
+        "MF not connecting to database",
+        "MF deployment db connection fails",
+        "Issue with connecting to database MF install"
+    ],
+    "mf-software-install-components-not-deployed":[
+        "Mobile Foundation components not deployed",
+        "MF not installing components",
+        "MF components enabled but not deployed",
+        "Mobile Foundation components enabled but not deployed"
+    ]
+  }
