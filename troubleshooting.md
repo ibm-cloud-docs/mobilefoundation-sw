@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-06-10"
+lastupdated: "2020-06-22"
 
 keywords: troubleshooting techniques, troubleshooting mobile foundation
 
@@ -121,7 +121,7 @@ The deployment value `mfpserver_enabled` might be set to `false`.
 Ensure that server is enabled too.
 {: tsResolve}
 	
-##  {{site.data.keyword.mobilefoundation_short}}  deployment fails connecting to database
+##  {{site.data.keyword.mobilefoundation_short}} deployment fails connecting to database
 {: #mf-software-install-not-connecting-to-db}
 {: troubleshoot}
 {: support}
@@ -133,6 +133,28 @@ Database details might be incorrect.
 {: tsCauses}
 	
 Ensure that the database is reachable from a simple database client utility.
+{: tsResolve}  
+
+##  Uninstallation of {{site.data.keyword.mobilefoundation_short}} hangs
+{: #mf-software-install-not-connecting-to-db}
+{: troubleshoot}
+{: support}
+
+Uninstallation of {{site.data.keyword.mobilefoundation_short}} hangs indefinitely and the associated resources are not removed.
+{: tsSymptoms}
+	
+This issue occurs because the CustomResourceDefinition (CRD) is stuck and needs to be cleared manually.
+{: tsCauses}
+	
+1. From the terminal log in to the cluster using `oc` OpenShift CLI and run the following command.
+	```bash
+   oc patch crd/mfoperators.mf.ibm.com -p '{"metadata":{"finalizers":[]}}' --type=merge
+  ```
+  {: codeblock}
+2. If applying the patch did not clear the resources, perform the following steps.
+    * Execute the command `oc edit mfoperator.ibm.com`.
+	  * Locate the keyword *finalizers* and delete the `uninstall*` line below the *finalizers* keyword and save the document.
+	  * Ensure that the resources are cleaned up by running the `oc get pods` command.
 {: tsResolve}  
 
 ## Techniques for troubleshooting problems
