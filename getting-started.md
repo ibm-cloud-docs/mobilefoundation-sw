@@ -127,6 +127,9 @@ There is no preinstallation script to be executed. You can proceed to the follow
 
 In the **Parameters without default values** section, provide the database related parameter values.
 
+You can also create or connect to an existing [Db2 service on IBM Cloud](https://cloud.ibm.com/catalog/services/db2) (**Lite** plan not supported). Get the service credentials and use it to populate the database deployment values. 
+{: note}
+
 Expand **Parameters with default values** and change the parameter values as needed. 
 
 For a list of deployment values for {{site.data.keyword.mobilefoundation_short}}, see [here](/docs/mobilefoundation-sw/mobilefoundation-sw-deployment-values?topic=mobilefoundation-sw-deployment-values).
