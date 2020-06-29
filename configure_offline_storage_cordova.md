@@ -39,7 +39,7 @@ Follow the [Adding the {{site.data.keyword.mobilefoundation_short}} SDK to Cordo
 
 ### Adding JSONStore to your Cordova project
 {: #adding_jsonstore_cordova}
-{: help
+{: help}
 {: support}
 
 

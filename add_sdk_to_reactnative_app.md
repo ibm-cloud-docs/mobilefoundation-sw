@@ -28,7 +28,7 @@ subcollection:  mobilefoundation-sw
 
 ## Adding the React Native SDK to your app
 {: #adding-reactnative-sdk-to-your-app}
-{: help
+{: help}
 {: support}
 
 This SDK is the Core SDK for {{site.data.keyword.IBM_notm}} {{site.data.keyword.mobilefoundation_short}} consisting of APIs for implementing {{site.data.keyword.mobilefoundation_short}} security, authorization, logging, calling adapters and other core functions. To add {{site.data.keyword.mobilefoundation_short}} capabilities to an existing React Native app, you need to add the `react-native-ibm-mobilefirst` plug-in to your app. The `react-native-ibm-mobilefirst` plug-in contains {{site.data.keyword.mobilefoundation_short}} SDK. Perform the following steps to add the React Native plug-in to your React Native application.

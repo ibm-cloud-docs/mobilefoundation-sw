@@ -40,7 +40,7 @@ Follow the [Adding the {{site.data.keyword.mobilefoundation_short}} SDK to Andro
 
 ### Adding JSONStore to your Android project
 {: #adding_jsonstore_android}
-{: help
+{: help}
 {: support}
 
 1. From **Android → Gradle Scripts**, select the `build.gradle (Module: app)` file.

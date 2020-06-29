@@ -41,7 +41,7 @@ subcollection:  mobilefoundation-sw
 
 # Manage app versions
 {: #manage_app_versions}
-{: help
+{: help}
 {: support}
 
 The {{site.data.keyword.mobilefoundation_short}} application management capabilities provide {{site.data.keyword.mobilefoundation_short}} Server users and administrators with granular control over user and device access to their applications.

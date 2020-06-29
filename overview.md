@@ -54,7 +54,7 @@ Building engaging mobile apps is the key to the success of an app strategy for a
 ###  App Insights
 {: #app_insights}
 
-To keep your user engagement relevant and active you must obtain insights into how your application is performing with users. The {{site.data.keyword.mobileanalytics_short} feature of {{site.data.keyword.mobilefoundation_short} provides this capability with in-built visualizations (charts and tables). With minimal instrumentation of your application, you can readily visualize, on the Mobile Analytics console the following actionable insights,
+To keep your user engagement relevant and active you must obtain insights into how your application is performing with users. The {{site.data.keyword.mobileanalytics_short}} feature of {{site.data.keyword.mobilefoundation_short}} provides this capability with in-built visualizations (charts and tables). With minimal instrumentation of your application, you can readily visualize, on the Mobile Analytics console the following actionable insights,
 - **User Onboarding Patterns**: Do you have new users onboarding? Do you have existing users who return to your application?
 - **Usage Patterns**: At what times is your application most and least used, is it meeting its business relevance in this regard?
 - **Backend Performance**: What are the most used functions of your backend systems and what is their response time and stability, is there a need to rebalance your backend?

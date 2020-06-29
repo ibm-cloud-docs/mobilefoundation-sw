@@ -41,7 +41,7 @@ subcollection:  mobilefoundation-sw
 
 # Manage devices
 {: #manage_devices}
-{: help
+{: help}
 {: support}
 
 Device access and device state can be managed from the {{site.data.keyword.mobilefoundation_short}} Operations console. A device is uniquely identified with an identifier called device ID, assigned by {{site.data.keyword.mobilefoundation_short}} client SDK. You can also set a display name for your device. Both the device ID and the device display name fields are indexed for search.
@@ -63,7 +63,7 @@ The **Expired** status is a special status that is set by {{site.data.keyword.mo
 
 ## Block devices
 {: #block_devices}
-{: help
+{: help}
 {: support}
 
 1. Go to the **Devices** page from the {{site.data.keyword.mobilefoundation_short}} Operations console.
@@ -76,7 +76,7 @@ The **Expired** status is a special status that is set by {{site.data.keyword.mo
 
 ## Unregister devices
 {: #unregister_devices}
-{: help
+{: help}
 {: support}
 
 1. Go to the **Devices** page from the {{site.data.keyword.mobilefoundation_short}} Operations console.

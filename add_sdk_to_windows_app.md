@@ -28,7 +28,7 @@ subcollection:  mobilefoundation-sw
 
 ## Adding the Client SDK to your Windows app
 {: #adding-windows-sdk-to-your-app}
-{: help
+{: help}
 {: support}
 
 This SDK is the Core SDK for {{site.data.keyword.IBM_notm}} {{site.data.keyword.mobilefoundation_short}} consisting of APIs for implementing {{site.data.keyword.mobilefoundation_short}} security, [authorization](#x2014653){: term}, logging, calling adapters and other core functions. 

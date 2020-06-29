@@ -31,7 +31,7 @@ The {{site.data.keyword.mobilefoundation_short}} JSONStore is an optional client
 
 ## Adding offline storage for React Native apps
 {: #adding_offline_storage_reactnative}
-{: help
+{: help}
 {: support}
 
 1. Open a command-line terminal and navigate to your React Native project folder.

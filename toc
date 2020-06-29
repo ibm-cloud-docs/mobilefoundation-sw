@@ -56,7 +56,6 @@ Mobile Foundation software
         jsonstore.md
         advanced_jsonstore.md
         sync_data_with_datasource.md
-        jsonstore_code_examples.md
     export_import_apps_adapters.md
 
     {: .topicgroup}
@@ -75,6 +74,7 @@ Mobile Foundation software
     Develop for Android
         add_sdk_to_android_app.md
         configure_offline_storage_android.md
+        jsonstore_code_examples_android.md
         instrument_an_app_android.md
         sending_in_app_feedback_android.md
         handling_push_notifications_in_android.md
@@ -83,6 +83,7 @@ Mobile Foundation software
     Develop for iOS
         add_sdk_to_ios_app.md
         configure_offline_storage_ios.md
+        jsonstore_code_examples_ios.md
         instrument_an_app_ios.md
         sending_in_app_feedback_ios.md
         handling_push_notifications_in_ios.md
@@ -91,6 +92,7 @@ Mobile Foundation software
     Develop for Cordova
         add_sdk_to_cordova_app.md  
         configure_offline_storage_cordova.md
+        jsonstore_code_examples_cordova.md
         instrument_an_app_cordova.md 
         sending_in_app_feedback_cordova.md
         handling_push_notifications_in_cordova.md 

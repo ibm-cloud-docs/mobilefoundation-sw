@@ -28,7 +28,7 @@ subcollection:  mobilefoundation-sw
 
 ## Adding the Ionic SDK to your app
 {: #adding-ionic-sdk-to-your-app}
-{: help
+{: help}
 {: support}
 
 This SDK is the Core SDK for {{site.data.keyword.IBM_notm}} {{site.data.keyword.mobilefoundation_short}} consisting of APIs for implementing {{site.data.keyword.mobilefoundation_short}} security, [authorization](#x2014653){: term}, logging, calling adapters and other core functions. Perform the following steps to add the Ionic SDK to your application. Consider creating a project by using the {{site.data.keyword.mobilefoundation_short}} Ionic application template. The [template](#x2041200){: term} adds the necessary {{site.data.keyword.mobilefoundation_short}} specific plug-in entries to the Ionic project’s `config.xml` file and provides a {{site.data.keyword.mobilefoundation_short}} specific, ready-to-use, `index.js` file.

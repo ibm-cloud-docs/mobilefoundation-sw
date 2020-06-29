@@ -41,7 +41,7 @@ Follow the [Adding the {{site.data.keyword.mobilefoundation_short}} SDK to iOS a
 
 ### Adding JSONStore to your iOS project
 {: #adding_jsonstore_ios}
-{: help
+{: help}
 {: support}
 
 1. Add the following to the existing `podfile`, at the root of the Xcode project.
