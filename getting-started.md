@@ -67,7 +67,7 @@ You must buy a license through [IBM Passport Advantage](https://www.ibm.com/soft
 | E0Q8ZLL | IBM {{site.data.keyword.mobilefoundation_short}} Virtual Processor Core Annual SW Subscription & Support renewal 12 months |
 | D24Q1LL | IBM {{site.data.keyword.mobilefoundation_short}} Virtual Processor Core SW Subscription & Support Reinstatement 12 months |
 
-Make sure that your cluster meets the minimum scheduling capacity. All of the {{site.data.keyword.mobilefoundation_short}} components are deployed with 3 replicas each, hence it is recommended to have 3 Nodes.
+Make sure that your cluster meets the minimum scheduling capacity. It is recommended to install {{site.data.keyword.mobilefoundation_short}} components with 3 replicas each.
 
 Elasticsearch is required if you install Analytics. Database (Db2) is required for all other {{site.data.keyword.mobilefoundation_short}} components.
 By default, all components are enabled for install. To selectively install components, modify the deployment values during install.
@@ -75,14 +75,14 @@ By default, all components are enabled for install. To selectively install compo
 
 | Components | Memory (GB) | CPU (cores) | Disk (GB) | Nodes |
 |------------|--------|-------------|-----------|-------|
-| Database initialization job | 0.3 | 0.3 | - | 1 |
-| Server | 2 | 1 | - | 3 |
-| Analytics | 2 | 1 | - | 3 |
-| Analytics Receiver | 1 | 0.75 | - | 3 |
-| Live Update | 1 | 0.75 | - | 3 |
-| Push Notifications | 2 | 1 | - | 3 |
-| Application Center | 2 | 1 | - | 3 |
-| Elasticsearch | 2 | 1 | - | 3 |
+| Database initialization job (Mandatory) | 0.3 | 0.3 | - | 1 |
+| Server (Mandatory) | 2 | 1 | - | 3 |
+| Analytics (Optional) | 2 | 1 | - | 3 |
+| Analytics Receiver (Mandatory if Analytics is installed) | 1 | 0.75 | - | 3 |
+| Live Update (Optional)| 1 | 0.75 | - | 3 |
+| Push Notifications (Optional) | 2 | 1 | - | 3 |
+| Application Center (Optional) | 2 | 1 | - | 3 |
+| Elasticsearch (Mandatory if Analytics is installed) | 2 | 1 | - | 3 |
 | Mobile Foundation Operator | 0.5 | 0.4 | - | 3 |
 | Elasticsearch Operator | 0.5 | 0.4 | - | 3 |
 | **Total** | ~13.5 | 7.6 | 5 | 3 |
