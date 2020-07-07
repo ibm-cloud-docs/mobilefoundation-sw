@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-06-22"
+lastupdated: "2020-07-07"
 
 keywords: troubleshooting techniques, troubleshooting mobile foundation
 
@@ -136,7 +136,7 @@ Ensure that the database is reachable from a simple database client utility.
 {: tsResolve}  
 
 ##  Uninstallation of {{site.data.keyword.mobilefoundation_short}} hangs
-{: #mf-software-install-not-connecting-to-db}
+{: #mf-software-uninstall-hangs}
 {: troubleshoot}
 {: support}
 
@@ -146,9 +146,24 @@ Uninstallation of {{site.data.keyword.mobilefoundation_short}} hangs indefinitel
 This issue occurs because the CustomResourceDefinition (CRD) is stuck and needs to be cleared manually.
 {: tsCauses}
 	
-1. From the terminal log in to the cluster using `oc` OpenShift CLI and run the following command.
+1. From the terminal log in to the cluster using `oc` OpenShift CLI and run the following command to remove the resources related to MFOperator.
 	```bash
    oc patch crd/mfoperators.mf.ibm.com -p '{"metadata":{"finalizers":[]}}' --type=merge
+  ```
+  {: codeblock}
+  or,
+  ```bash
+  oc patch MFOperator/ibm-mf -p '{"metadata":{"finalizers":[]}}' --type=merge
+  ```
+  {:codeblock}
+  To remove the resources related to ESOperator execute the following command.
+  ```bash
+  oc patch crd/esoperators.es.ibm.com -p '{"metadata":{"finalizers":[]}}' --type=merge
+  ```
+  {: codeblock}
+  or,
+  ```bash
+  oc patch ESOperator/ibm-es -p '{"metadata":{"finalizers":[]}}' --type=merge
   ```
   {: codeblock}
 2. If applying the patch did not clear the resources, perform the following steps.
