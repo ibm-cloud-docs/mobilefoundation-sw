@@ -6,7 +6,7 @@ lastupdated: "2020-04-29"
 
 keywords: mobile foundation security, authentication, using challenge handlers
 
-subcollection:  mobilefoundation-
+subcollection:  mobilefoundation-sw
 
 ---
 
