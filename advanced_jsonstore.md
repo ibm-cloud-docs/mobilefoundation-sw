@@ -22,29 +22,14 @@ subcollection:  mobilefoundation-sw
 {:important: .important}
 {:note: .note}
 {:download: .download}
-{:java: .ph data-hd-programlang='java'}
-{:ruby: .ph data-hd-programlang='ruby'}
-{:c#: .ph data-hd-programlang='c#'}
-{:objectc: .ph data-hd-programlang='Objective C'}
-{:python: .ph data-hd-programlang='python'}
-{:javascript: .ph data-hd-programlang='javascript'}
-{:php: .ph data-hd-programlang='PHP'}
-{:swift: .ph data-hd-programlang='swift'}
-{:reactnative: .ph data-hd-programlang='React Native'}
-{:csharp: .ph data-hd-programlang='csharp'}
-{:ios: .ph data-hd-programlang='iOS'}
-{:android: .ph data-hd-programlang='Android'}
-{:cordova: .ph data-hd-programlang='Cordova'}
-{:xml: .ph data-hd-programlang='xml'}
 
 # Advanced JSONStore
 {: #advanced_jsonstore}
 
-## Security in JSONStore
-{: #security_jsonstore}
+## Security in JSONStore in Cordova
+{: #security_jsonstore-cordova}
 
 You can secure all the collections in a store by passing a password to the `init` function. If no password is passed, the documents of all the collections in the store are not encrypted.
-{: cordova}
 
 Data encryption is only available on Android, iOS, Windows 8.1 Universal and Windows 10 UWP environments. 
 
@@ -52,13 +37,10 @@ Data encryption is only available on Android, iOS, Windows 8.1 Universal and Win
 
 Some security metadata is stored in the keychain (iOS), shared preferences (Android), or the credential locker (Windows 8.1).
 The store is encrypted with a 256-bit Advanced Encryption Standard (AES) key. All keys are strengthened with Password-Based Key Derivation Function 2 (PBKDF2).
-{: cordova}
 
 Use `closeAll` to lock access to all the collections until you call `init` again. If you think of `init` as a login function, you can think of `closeAll` as the corresponding logout function. Use `changePassword` to change the password.
-{: cordova}
 
 Encryption is supported in iOS only. By default, the {{site.data.keyword.mobilefoundation_short}} Cordova SDK for iOS relies on iOS provided APIs for encryption. If you prefer to replace this with OpenSSL:
-{: cordova}
 
 * Add the `cordova-plugin-mfp-encrypt-utils` plug-in:
 
@@ -68,75 +50,11 @@ Encryption is supported in iOS only. By default, the {{site.data.keyword.mobilef
    {: codeblock}
 
 * In the application logic, use: `WL.SecurityUtils.enableNativeEncryption(false)` to enable the OpenSSL option.
-{: cordova}
 
-You can secure all the collections in a store by passing a `JSONStoreOpenOptions` object with a password to the `openCollections` function. If no password is passed, the documents of all the collections in the store aren’t encrypted.
-{: ios}
-
-Some security metadata is stored in the keychain (iOS).
-The store is encrypted with a 256-bit Advanced Encryption Standard (AES) key. All keys are strengthened with Password-Based Key Derivation Function 2 (PBKDF2).
-{: ios}
-
-Use `closeAllCollections` to lock access to all the collections until you call `openCollections` again. If you think of `openCollections` as a login function, you can think of `closeAllCollections` as the corresponding logout function.
-{: ios}
-
-Use `changeCurrentPassword` to change the password.
-{: ios}
-
-```swift
-let collection:JSONStoreCollection = JSONStoreCollection(name: "people")
-collection.setSearchField("name", withType: JSONStore_String)
-collection.setSearchField("age", withType: JSONStore_Integer)
-
-let options:JSONStoreOpenOptions = JSONStoreOpenOptions()
-options.password = "123"
-
-do {
-  try JSONStore.sharedInstance().openCollections([collection], withOptions: options)
-} catch let error as NSError {
-  // handle error
-}
-```
-{: codeblock}
-{: ios}
-
-You can secure all the collections in a store by passing a `JSONStoreInitOptions` object with a password to the `openCollections` function. If no password is passed, the documents of all the collections in the store are not encrypted.
-{: android}
-
-Some security metadata is stored in the shared preferences (Android).
-The store is encrypted with a 256-bit Advanced Encryption Standard (AES) key. All keys are strengthened with Password-Based Key Derivation Function 2 (PBKDF2).
-{: android}
-
-Use `closeAllCollections` to lock access to all the collections until you call `openCollections` again. If you think of `openCollections` as a login function, you can think of `closeAllCollections` as the corresponding logout function.
-{: android}
-
-Use `changeCurrentPassword` to change the password.
-{: android}
-
-```java
-Context context = getContext();
-try {
-  JSONStoreCollection people = new JSONStoreCollection("people");
-  people.setSearchField("name", SearchFieldType.STRING);
-  people.setSearchField("age", SearchFieldType.INTEGER);
-  List<JSONStoreCollection> collections = new LinkedList<JSONStoreCollection>();
-  collections.add(people);
-  JSONStoreInitOptions options = new JSONStoreInitOptions();
-  options.setPassword("123");
-  WLJSONStore.getInstance(context).openCollections(collections, options);
-  // handle success
-} catch(JSONStoreException e) {
-  // handle failure
-}
-```
-{: codeblock}
-{: android}
-
-## Support for Multiple users in JSONStore
-{: #multiple_user_jsonstore}
+### Support for Multiple users in JSONStore
+{: #multiple_user_jsonstore-cordova}
 
 You can create multiple stores that contain different collections in a single {{site.data.keyword.mobilefoundation_short}} application. The `init` function can take an options object with a username. If no username is given, the default username is *jsonstore*.
-{: cordova}
 
 ```javascript
 var collections = {
@@ -152,56 +70,12 @@ WL.JSONStore.init(collections, options).then(function () {
 });
 ```
 {: codeblock}
-{: cordova}
 
-You can create multiple stores that contain different collections in a single {{site.data.keyword.mobilefoundation_short}} application. The `init` function can take an options object with a username. If no username is given, the default username is *jsonstore*.
-{: ios}
-
-```swift
-let collection:JSONStoreCollection = JSONStoreCollection(name: "people")
-collection.setSearchField("name", withType: JSONStore_String)
-collection.setSearchField("age", withType: JSONStore_Integer)
-
-let options:JSONStoreOpenOptions = JSONStoreOpenOptions()
-options.username = "yoel"
-
-do {
-  try JSONStore.sharedInstance().openCollections([collection], withOptions: options)
-} catch let error as NSError {
-  // handle error
-}
-```
-{: codeblock}
-{: ios}
-
-You can create multiple stores that contain different collections in a single {{site.data.keyword.mobilefoundation_short}} application. The `openCollections` function can take an options object with a username. If no username is given, the default username is *jsonstore*.
-{: android}
-
-```java
-Context context = getContext();
-try {
-  JSONStoreCollection people = new JSONStoreCollection("people");
-  people.setSearchField("name", SearchFieldType.STRING);
-  people.setSearchField("age", SearchFieldType.INTEGER);
-  List<JSONStoreCollection> collections = new LinkedList<JSONStoreCollection>();
-  collections.add(people);
-  JSONStoreInitOptions options = new JSONStoreInitOptions();
-  options.setUsername("yoel");
-  WLJSONStore.getInstance(context).openCollections(collections, options);
-  // handle success
-} catch(JSONStoreException e) {
-  // handle failure
-}
-```
-{: codeblock}
-{: android}
-
-## Adapter integration
-{: #adapter_integration}
+### Adapter integration
+{: #adapter_integration-cordova}
 
 Adapter integration is optional and provides ways to send data from a collection to an adapter and get data from an adapter into a collection.
 You can achieve these goals by using `WLResourceRequest` or `jQuery.ajax` if you need more flexibility.
-{: cordova}
 
 1. Create an adapter and name it **JSONStoreAdapter**.
 1. Define its procedures `addPerson`, `getPeople`, `pushPeople`, `removePerson`, and `replacePerson`.
@@ -234,7 +108,6 @@ You can achieve these goals by using `WLResourceRequest` or `jQuery.ajax` if you
         return;
     }
    ```
-   {: cordova}
 
 1. To load data from an adapter use `WLResourceRequest`.
    ```javascript
@@ -250,7 +123,6 @@ You can achieve these goals by using `WLResourceRequest` or `jQuery.ajax` if you
         alert("Failed to load data from adapter " + e.Messages);
     }
    ```
-   {: cordova}   
 
 1. Calling `getPushRequired` returns an array of so called "dirty documents", which are documents that have local modifications that do not exist on the back-end system. These documents are sent to the adapter when `push` is called.
 
@@ -263,11 +135,9 @@ You can achieve these goals by using `WLResourceRequest` or `jQuery.ajax` if you
    });
    ```
    {: codeblock}
-   {: cordova}
 
    To prevent JSONStore from marking the documents as "dirty", pass the option `{markDirty:false}` to `add`, `replace`, and `remove`.
    {: tip}
-   {: cordova}
 
 1. You can also use the `getAllDirty` API to retrieve the dirty documents.
 
@@ -280,7 +150,6 @@ You can achieve these goals by using `WLResourceRequest` or `jQuery.ajax` if you
     });
    ```
    {: codeblock}
-   {: cordova}
 
 1. To push changes to an adapter, call the `getAllDirty` to get a list of documents with modifications and then use `WLResourceRequest`. After the data is sent and a successful response is received make sure, you call `markClean`.
 
@@ -310,7 +179,6 @@ You can achieve these goals by using `WLResourceRequest` or `jQuery.ajax` if you
     }
    ```
    {: codeblock}
-   {: cordova}
 
 1. Use `enhance` to extend the core API to fit your needs, by adding functions to a collection prototype. This example (the following code snippet) shows how to use `enhance` to add the function `getValue` that works on the `keyvalue` collection. It takes a key (string) as it's only parameter and returns a single result.
 
@@ -334,14 +202,65 @@ You can achieve these goals by using `WLResourceRequest` or `jQuery.ajax` if you
     });
    ```
    {: codeblock}
-   {: cordova}
 
 1. See the JSONStore sample for Cordova app from the **Samples** section. This project contains a Cordova application that uses the JSONStore API set. JavaScript adapter Maven project can be downloaded from [here](https://github.com/MobileFirst-Platform-Developer-Center/JSONStoreAdapter/tree/release80).
-{: cordova}
+
+
+## Security in JSONStore in iOS
+{: #security_jsonstore-ios}
+
+You can secure all the collections in a store by passing a `JSONStoreOpenOptions` object with a password to the `openCollections` function. If no password is passed, the documents of all the collections in the store aren’t encrypted.
+
+Some security metadata is stored in the keychain (iOS).
+The store is encrypted with a 256-bit Advanced Encryption Standard (AES) key. All keys are strengthened with Password-Based Key Derivation Function 2 (PBKDF2).
+
+Use `closeAllCollections` to lock access to all the collections until you call `openCollections` again. If you think of `openCollections` as a login function, you can think of `closeAllCollections` as the corresponding logout function.
+
+Use `changeCurrentPassword` to change the password.
+
+```swift
+let collection:JSONStoreCollection = JSONStoreCollection(name: "people")
+collection.setSearchField("name", withType: JSONStore_String)
+collection.setSearchField("age", withType: JSONStore_Integer)
+
+let options:JSONStoreOpenOptions = JSONStoreOpenOptions()
+options.password = "123"
+
+do {
+  try JSONStore.sharedInstance().openCollections([collection], withOptions: options)
+} catch let error as NSError {
+  // handle error
+}
+```
+{: codeblock}
+
+### Support for Multiple users in JSONStore
+{: #multiple_user_jsonstore-ios}
+
+You can create multiple stores that contain different collections in a single {{site.data.keyword.mobilefoundation_short}} application. The `init` function can take an options object with a username. If no username is given, the default username is *jsonstore*.
+
+```swift
+let collection:JSONStoreCollection = JSONStoreCollection(name: "people")
+collection.setSearchField("name", withType: JSONStore_String)
+collection.setSearchField("age", withType: JSONStore_Integer)
+
+let options:JSONStoreOpenOptions = JSONStoreOpenOptions()
+options.username = "yoel"
+
+do {
+  try JSONStore.sharedInstance().openCollections([collection], withOptions: options)
+} catch let error as NSError {
+  // handle error
+}
+```
+{: codeblock}
+
+### Adapter integration
+{: #adapter_integration-ios}
 
 Adapter integration is optional and provides ways to send data from a collection to an adapter and get data from an adapter into a collection.
+
 You can achieve these goals by using `WLResourceRequest`.
-{: ios}
 
 1. Create an adapter and name it **People**.
 1. Define it's procedures `addPerson`, `getPeople`, `pushPeople`, `removePerson`, and `replacePerson`.
@@ -368,7 +287,6 @@ You can achieve these goals by using `WLResourceRequest`.
     pull.sendWithDelegate(loadDelegate)
    ```
    {: codeblock}
-   {: ios}
 
 1. Calling `allDirty` returns an array of so called "dirty documents", which are documents that have local modifications that don’t exist on the back-end system.
 
@@ -383,7 +301,6 @@ You can achieve these goals by using `WLResourceRequest`.
     }
    ```
    {: codeblock}
-   {: ios}
 
    To prevent JSONStore from marking the documents as "dirty", pass the option `{markDirty:false}` to `add`, `replace`, and `remove`.
    {: tip}
@@ -420,14 +337,69 @@ You can achieve these goals by using `WLResourceRequest`.
     }
    ```
    {: codeblock}
-   {: ios}
 
 1. Download the native iOS Swift application project from the **Samples** section. The project contains a native iOS Swift application that uses the JSONStore API set. JavaScript adapter Maven project can be downloaded from [here](https://github.com/MobileFirst-Platform-Developer-Center/JSONStoreAdapter/tree/release80).
-{: ios}
+
+
+## Security in JSONStore in Android
+{: #security_jsonstore-android}
+
+You can secure all the collections in a store by passing a `JSONStoreInitOptions` object with a password to the `openCollections` function. If no password is passed, the documents of all the collections in the store are not encrypted.
+
+Some security metadata is stored in the shared preferences (Android).
+The store is encrypted with a 256-bit Advanced Encryption Standard (AES) key. All keys are strengthened with Password-Based Key Derivation Function 2 (PBKDF2).
+
+Use `closeAllCollections` to lock access to all the collections until you call `openCollections` again. If you think of `openCollections` as a login function, you can think of `closeAllCollections` as the corresponding logout function.
+
+Use `changeCurrentPassword` to change the password.
+
+```java
+Context context = getContext();
+try {
+  JSONStoreCollection people = new JSONStoreCollection("people");
+  people.setSearchField("name", SearchFieldType.STRING);
+  people.setSearchField("age", SearchFieldType.INTEGER);
+  List<JSONStoreCollection> collections = new LinkedList<JSONStoreCollection>();
+  collections.add(people);
+  JSONStoreInitOptions options = new JSONStoreInitOptions();
+  options.setPassword("123");
+  WLJSONStore.getInstance(context).openCollections(collections, options);
+  // handle success
+} catch(JSONStoreException e) {
+  // handle failure
+}
+```
+{: codeblock}
+
+### Support for Multiple users in JSONStore
+{: #multiple_user_jsonstore-android}
+
+You can create multiple stores that contain different collections in a single {{site.data.keyword.mobilefoundation_short}} application. The `openCollections` function can take an options object with a username. If no username is given, the default username is *jsonstore*.
+
+```java
+Context context = getContext();
+try {
+  JSONStoreCollection people = new JSONStoreCollection("people");
+  people.setSearchField("name", SearchFieldType.STRING);
+  people.setSearchField("age", SearchFieldType.INTEGER);
+  List<JSONStoreCollection> collections = new LinkedList<JSONStoreCollection>();
+  collections.add(people);
+  JSONStoreInitOptions options = new JSONStoreInitOptions();
+  options.setUsername("yoel");
+  WLJSONStore.getInstance(context).openCollections(collections, options);
+  // handle success
+} catch(JSONStoreException e) {
+  // handle failure
+}
+```
+{: codeblock}
+
+
+### Adapter integration
+{: #adapter_integration-android}
 
 Adapter integration is optional and provides ways to send data from a collection to an adapter and get data from an adapter into a collection.
 You can achieve these goals by using functions such as `WLResourceRequest` or your own instance of an `HttpClient` if you need more flexibility.
-{: android}
 
 1. Create an adapter and name it **JSONStoreAdapter**.
 1. Define its procedures `addPerson`, `getPeople`, `pushPeople`, `removePerson`, and `replacePerson`.
@@ -457,7 +429,6 @@ You can achieve these goals by using functions such as `WLResourceRequest` or yo
     }
    ```
    {: codeblock}
-   {: android}
 
 1. Calling `findAllDirtyDocuments` returns an array of so called "dirty documents", which are documents that have local modifications that don’t exist on the back-end system.
 
@@ -473,11 +444,9 @@ You can achieve these goals by using functions such as `WLResourceRequest` or yo
     }
    ```
    {: codeblock}
-   {: android}
 
    To prevent JSONStore from marking the documents as "dirty", pass the option `options.setMarkDirty(false)` to `add`, `replace`, and `remove`.
    {: tip}
-   {: android}
 
 1. To push changes to an adapter, call the `findAllDirtyDocuments` to get a list of documents with modifications and then use `WLResourceRequest`. After the data is sent and a successful response is received make sure, you call `markDocumentsClean`.
 
@@ -511,7 +480,5 @@ You can achieve these goals by using functions such as `WLResourceRequest` or yo
     }
    ```
    {: codeblock}
-   {: android}
 
 1. Download the native Android application project from the **Samples** section. The project contains a native Android application that uses the JSONStore API set. JavaScript adapter Maven project can be downloaded from [here](https://github.com/MobileFirst-Platform-Developer-Center/JSONStoreAdapter/tree/release80).
-{: android}
